@@ -12,20 +12,22 @@ ESUSER=$2
 ESPASS=$3
 ESURL=$4
 
-JSON=$(curl -s --user ${ESUSER}:${ESPASS} ${ESURL})
-
 if [ ${ESOP} -eq 1 ]
 then
+	JSON=$(curl -s --user ${ESUSER}:${ESPASS} ${ESURL})
 	FILTRO=$(echo ${JSON} | jq '.nodes[].name')
 	DISCOP="{#NODE_NAME}"
 else
-	#FILTRO=$(echo ${JSON} | cut -d " " -f 3)
-	FILTRO=$(echo ${JSON} | awk -F" " '{print $3}')
+	FILTRO=$(curl -s --user ${ESUSER}:${ESPASS} ${ESURL} | cut -d " " -f 3)
+	for IND in ${FILTRO}; do
+		FILTRO2="${FILTRO2}""\"${IND}\" "
+	done
+	FILTRO="${FILTRO2}"
 	DISCOP="{#INDI_NAME}"
 fi
 
 CONTROLE=1
-
+echo ${FILTRO}
 echo "["
 
 for FILTRA in ${FILTRO}; do
