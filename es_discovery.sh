@@ -27,7 +27,7 @@ else
 fi
 
 CONTROLE=1
-echo ${FILTRO}
+
 echo "["
 
 for FILTRA in ${FILTRO}; do
