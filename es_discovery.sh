@@ -2,9 +2,10 @@
 #
 # Script criado por Hygor Galdino em 22-11-2019
 #
-# Retorna os nomes dos nodes e os indices do ElasticSearch
+# Script usado na LLD
+# Discovery dos nodes e dos indices do ElasticSearch
 #
-#
+# Uso: ./es_discovery.sh <opcao> <user> <pass> <url>
 #
 
 ESOP=$1
