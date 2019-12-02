@@ -33,6 +33,8 @@ Após aplicar o template no host, Preencher as seguintes macros:
 | {$URL_CLUSTER} | http://10.10.10.10:9200/_cluster/ | 
 | {$URL_NODE} | http://10.10.10.10:9200/_nodes/ |
 | {$URL_NODES} | http://10.10.10.10:9200/_nodes/_all/name |
+| {$URL_BASE} | http://10.10.10.10:9200 |
+| {$URL_INDICES} | http://10.10.10.10:9200/_cat/indices |
 
 
 # Versão utilizada
