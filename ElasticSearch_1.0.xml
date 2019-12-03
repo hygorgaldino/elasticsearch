@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2019-12-02T01:24:42Z</date>
+    <date>2019-12-03T21:24:25Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -116,8 +116,8 @@
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
                     <authtype>BASIC</authtype>
-                    <username>{$USER}</username>
-                    <password>{$PASS}</password>
+                    <username>{$ESUSER}</username>
+                    <password>{$ESPASS}</password>
                     <applications>
                         <application>
                             <name>ElasticSearch</name>
@@ -479,15 +479,16 @@
                     <trends>0</trends>
                     <value_type>TEXT</value_type>
                     <authtype>BASIC</authtype>
-                    <username>{$USER}</username>
-                    <password>{$PASS}</password>
+                    <username>{$ESUSER}</username>
+                    <password>{$ESPASS}</password>
                     <applications>
                         <application>
                             <name>ElasticSearch</name>
                         </application>
                     </applications>
-                    <timeout>10s</timeout>
+                    <timeout>20s</timeout>
                     <url>{$URL_CLUSTER}/stats</url>
+                    <output_format>JSON</output_format>
                 </item>
                 <item>
                     <name>Cluster Status</name>
@@ -601,7 +602,7 @@
                 <discovery_rule>
                     <name>Elastic Search Nodes Discovery</name>
                     <type>EXTERNAL</type>
-                    <key>es_discovery.sh[1, {$USER}, {$PASS}, {$URL_NODES}]</key>
+                    <key>es_discovery.sh[1, {$ESUSER}, {$ESPASS}, {$URL_NODES}]</key>
                     <delay>24h</delay>
                     <item_prototypes>
                         <item_prototype>
@@ -923,8 +924,8 @@
                             <trends>0</trends>
                             <value_type>TEXT</value_type>
                             <authtype>BASIC</authtype>
-                            <username>{$USER}</username>
-                            <password>{$PASS}</password>
+                            <username>{$ESUSER}</username>
+                            <password>{$ESPASS}</password>
                             <applications>
                                 <application>
                                     <name>ElasticSearch</name>
@@ -1186,7 +1187,7 @@
                 <discovery_rule>
                     <name>Elastic Search Index Discovery</name>
                     <type>EXTERNAL</type>
-                    <key>es_discovery.sh[2, {$USER}, {$PASS}, {$URL_INDICES}]</key>
+                    <key>es_discovery.sh[2, {$ESUSER}, {$ESPASS}, {$URL_INDICES}]</key>
                     <delay>24h</delay>
                     <item_prototypes>
                         <item_prototype>
@@ -1195,8 +1196,8 @@
                             <key>docs_count_index_[{#INDI_NAME}]</key>
                             <delay>10m</delay>
                             <authtype>BASIC</authtype>
-                            <username>{$USER}</username>
-                            <password>{$PASS}</password>
+                            <username>{$ESUSER}</username>
+                            <password>{$ESPASS}</password>
                             <applications>
                                 <application>
                                     <name>ElasticSearch</name>
@@ -1217,6 +1218,10 @@
             <macros>
                 <macro>
                     <macro>{$PASS}</macro>
+                </macro>
+                <macro>
+                    <macro>{$SEGUNDOS}</macro>
+                    <value>123</value>
                 </macro>
                 <macro>
                     <macro>{$URL_BASE}</macro>
