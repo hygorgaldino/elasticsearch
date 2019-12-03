@@ -15,11 +15,11 @@ ESURL=$4
 
 if [ ${ESOP} -eq 1 ]
 then
-	JSON=$(curl -s --user ${ESUSER}:${ESPASS} ${ESURL})
+	JSON=$(curl -k -s --user ${ESUSER}:${ESPASS} ${ESURL})
 	FILTRO=$(echo ${JSON} | jq '.nodes[].name')
 	DISCOP="{#NODE_NAME}"
 else
-	FILTRO=$(curl -s --user ${ESUSER}:${ESPASS} ${ESURL} | cut -d " " -f 3)
+	FILTRO=$(curl -k -s --user ${ESUSER}:${ESPASS} ${ESURL} | cut -d " " -f 3)
 	for IND in ${FILTRO}; do
 		FILTRO2="${FILTRO2}""\"${IND}\" "
 	done
