@@ -28,9 +28,9 @@ Após aplicar o template no host, Preencher as seguintes macros:
 
 | MACRO | VALOR Exemplo |
 | --- | --- |
-| {$USER} | monitor_zbx |
-| {$PASS} | elasbix |
-| {$URL_CLUSTER} | http://10.10.10.10:9200/_cluster/ | 
+| {$ESUSER} | monitor_zbx |
+| {$ESPASS} | elasbix |
+| {$URL_CLUSTER} | http://10.10.10.10:9200/_cluster | 
 | {$URL_NODE} | http://10.10.10.10:9200/_nodes/ |
 | {$URL_NODES} | http://10.10.10.10:9200/_nodes/_all/name |
 | {$URL_BASE} | http://10.10.10.10:9200 |
