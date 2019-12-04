@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>4.4</version>
-    <date>2019-12-03T21:24:25Z</date>
+    <date>2019-12-04T00:34:01Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -488,7 +488,6 @@
                     </applications>
                     <timeout>20s</timeout>
                     <url>{$URL_CLUSTER}/stats</url>
-                    <output_format>JSON</output_format>
                 </item>
                 <item>
                     <name>Cluster Status</name>
