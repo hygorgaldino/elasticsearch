@@ -1,6 +1,8 @@
 # elasticsearch
 Elasticsearch - Zabbix Monitoring
 
+Monitora **multiplos** cluster ElasticSearch **sem agent e sem instalar script no host.**
+
 Monitoramento de ElasticSearch utilizando API.
 
 Através de itens **HTTP Agent** as informações são coletadas da API do ElasticSearch e filtradas com **Dependent Itens**
